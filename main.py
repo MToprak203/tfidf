@@ -1,8 +1,3 @@
-"""
-    Mustafa Toprak - 47485536686
-    Özkan Bulut - 12382196158
-"""
-
 import os
 import math
 from string import punctuation, digits
@@ -68,7 +63,7 @@ def prepare_dicts():
 
     for file in os.listdir("hw4_dataset"):
         if file.endswith(".txt"):
-            file_path = f"{PATH}\\hw4_dataset\\{file}"
+            file_path = f"{PATH}\\dataset\\{file}"
             txt_dict[file.replace(".txt", "")] = read_text_file(file_path)
 
     stop_words = read_text_file(f"{PATH}\\stopwords.txt")
