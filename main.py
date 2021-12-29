@@ -1,8 +1,3 @@
-"""
-    Mustafa Toprak - 47485536686
-    Özkan Bulut - 12382196158
-"""
-
 import os
 import math
 from string import punctuation, digits
