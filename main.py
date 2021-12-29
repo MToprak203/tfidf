@@ -72,21 +72,20 @@ def prepare_dicts():
     word_counter()
 
 
-def tfidf(term, doc):
-    def tf():
-        return word_counts_dict[doc][term]
-
-    def df():
-        _result = 0
-        for _key in word_counts_dict.keys():
-            if term in word_counts_dict[_key].keys():
-                _result += 1
-        return _result
-
-    return tf() * math.log(len(word_counts_dict.keys()) / df())
-
-
 def find_tfidf_values():
+    def tfidf(_term, doc):
+        def tf():
+            return word_counts_dict[doc][_term]
+
+        def df():
+            _result = 0
+            for _key in word_counts_dict.keys():
+                if _term in word_counts_dict[_key].keys():
+                    _result += 1
+            return _result
+
+        return tf() * math.log(len(word_counts_dict.keys()) / df())
+
     for key in word_counts_dict.keys():
         words_tfidf[key] = {}
         for term in word_counts_dict[key].keys():
@@ -99,6 +98,6 @@ prepare_dicts()
 find_tfidf_values()
 
 
-for key in words_tfidf.keys():
-    result = {k: "{:.2f}".format(v) for (k, v) in list(words_tfidf[key].items())[:10]}
-    print(f"{key}'s top 10 tfidf terms are : {result}\n")
+for _key in words_tfidf.keys():
+    result = {k: "{:.2f}".format(v) for (k, v) in list(words_tfidf[_key].items())[:10]}
+    print(f"{_key}'s top 10 tfidf terms are : {result}\n")
