@@ -66,9 +66,9 @@ def prepare_dicts():
         for key in txt_dict.keys():
             word_counts_dict[key] = Counter(txt_dict[key])
 
-    for file in os.listdir("hw4_dataset"):
+    for file in os.listdir("dataset"):
         if file.endswith(".txt"):
-            file_path = f"{PATH}\\hw4_dataset\\{file}"
+            file_path = f"{PATH}\\dataset\\{file}"
             txt_dict[file.replace(".txt", "")] = read_text_file(file_path)
 
     stop_words = read_text_file(f"{PATH}\\stopwords.txt")
